@@ -66,7 +66,10 @@
                     "additionalProperties": {
                         "type": "array",
                         "items": {
-                            "type": "number"
+                            "type": [
+                                "number",
+                                "null"
+                            ]
                         },
                         "minItems": 2,
                         "maxItems": 2
@@ -197,7 +200,8 @@
                                     "items": {
                                         "type": [
                                             "number",
-                                            "string"
+                                            "string",
+                                            "null"
                                         ]
                                     }
                                 }

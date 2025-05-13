@@ -31,7 +31,7 @@ class FeatureMetrics(BaseModel):
     unprivileged: List[List[Union[int, str]]]
     feature_distribution: FeatureDistribution
     # Dict where key is metric name and value is [metric_value, threshold]
-    fair_metric_values: Dict[str, Union[List[float], List[Literal["NA"]]]]
+    fair_metric_values: Dict[str, Union[List[Optional[float]], List[Literal["NA"]]]]
     fairness_conclusion: Literal["fair", "unfair"]
     tradeoff: Optional[Dict] = None
     feature_importance: Optional[FeatureImportance] = None
@@ -58,7 +58,7 @@ class FairnessInit(BaseModel):
 class FairnessModel(BaseModel):
     fairness_init: FairnessInit
     # Performance metrics with names as keys and [value, std_dev] as values
-    perf_metric_values: Dict[str, List[float]]
+    perf_metric_values: Dict[str, List[Optional[float]]]
     # Optional class distribution (present in classification)
     class_distribution: Optional[Dict[str, float]] = None
     weighted_confusion_matrix: WeightedConfusionMatrix
